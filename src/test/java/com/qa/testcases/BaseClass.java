@@ -42,13 +42,14 @@ public class BaseClass {
             driver = null;
         }
         //implicit wait of 10 secs
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         //for logging
         logger = LogManager.getLogger("MyStoreV1");
 
         //open url
         driver.get(url);
+    driver.manage().window().maximize();
         logger.info("url opened");
     }
 

@@ -6,13 +6,16 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.*;
 
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Arrays;
 
 public class BaseClass {
 
@@ -32,6 +35,13 @@ public class BaseClass {
         switch (browser) {
             case "chrome":
                 WebDriverManager.chromedriver().setup();
+
+//                Chrome will open in incognito window
+//                ChromeOptions options = new ChromeOptions();
+//                options.addArguments("incognito");
+//                DesiredCapabilities cap = DesiredCapabilities.chrome();
+//                cap.setCapability(ChromeOptions.CAPABILITY, options);
+//
                 driver = new ChromeDriver();
                 break;
             case "edge":
@@ -43,22 +53,20 @@ public class BaseClass {
                 driver = new FirefoxDriver();
                 break;
         }
-            //for logging
-            logger = LogManager.getLogger("MyStoreV1");
+        //for logging
+        logger = LogManager.getLogger("MyStoreV1");
 
-            //open url
-            driver.get(url);
-            driver.manage().window().maximize();
-            logger.info("url opened");
-        }
-
-
-
-        @AfterClass
-        public void tearDown()
-        {
-            driver.close();
-            driver.quit();
-        }
+        //open url
+        driver.get(url);
+        driver.manage().window().maximize();
+        logger.info("url opened");
     }
+
+
+    @AfterClass
+    public void tearDown() {
+        driver.close();
+        driver.quit();
+    }
+}
 

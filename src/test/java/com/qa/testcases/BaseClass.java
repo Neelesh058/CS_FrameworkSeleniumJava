@@ -25,39 +25,40 @@ public class BaseClass {
 
     public BaseClass() throws IOException {
     }
-@BeforeClass
+
+    @BeforeClass
     public void setup() {
 
-        //launch browser
-        if (browser.equals(browser.toLowerCase())) {
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
-        } else if (browser.equals(browser.toLowerCase())) {
-            WebDriverManager.edgedriver().setup();
-            driver = new EdgeDriver();
-        } else if (browser.equals(browser.toLowerCase())) {
-            WebDriverManager.firefoxdriver().setup();
-            driver = new FirefoxDriver();
-        } else {
-            driver = null;
+        switch (browser) {
+            case "chrome":
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+                break;
+            case "edge":
+                WebDriverManager.edgedriver().setup();
+                driver = new EdgeDriver();
+                break;
+            case "firefox":
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
+                break;
         }
-        //implicit wait of 10 secs
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+            //for logging
+            logger = LogManager.getLogger("MyStoreV1");
 
-        //for logging
-        logger = LogManager.getLogger("MyStoreV1");
+            //open url
+            driver.get(url);
+            driver.manage().window().maximize();
+            logger.info("url opened");
+        }
 
-        //open url
-        driver.get(url);
-    driver.manage().window().maximize();
-        logger.info("url opened");
+
+
+        @AfterClass
+        public void tearDown()
+        {
+            driver.close();
+            driver.quit();
+        }
     }
 
-
-    @AfterClass
-    public void tearDown()
-    {
-        driver.close();
-        driver.quit();
-    }
-}

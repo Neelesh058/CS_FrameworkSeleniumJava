@@ -1,9 +1,7 @@
 package com.qa.testcases;
 
-import com.qa.pageobject.AccountCreation;
-import com.qa.pageobject.IndexPage;
-import com.qa.pageobject.MyAccount;
-import com.qa.pageobject.myAccountPage;
+import com.qa.pageobject.*;
+import org.testng.Assert;
 import org.testng.annotations.*;
 
 import java.io.IOException;
@@ -26,7 +24,7 @@ logger.info("url opened");
     ip.clickOnSignIn();
 
     myAccountPage mp=new myAccountPage(driver);
-    mp.enterCreateEmailAddress("neeleshpal16@gmail.com");
+    mp.enterCreateEmailAddress("neeleshpal19@gmail.com");
     mp.clickSubmitCreate();
 
     AccountCreation ac=new AccountCreation(driver);
@@ -50,6 +48,10 @@ logger.info("url opened");
         ma.enterHomePhone("12345678");
         ma.enterMobilePhone("12365455");
         ma.submitAddress();
+
+        RegisteredUserAccount rua=new RegisteredUserAccount(driver);
+        String title=driver.getTitle();
+        Assert.assertEquals(title,"Addresses - My Shop");
 
 
 }

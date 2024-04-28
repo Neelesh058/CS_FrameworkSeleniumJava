@@ -8,18 +8,17 @@ import org.openqa.selenium.support.PageFactory;
 public class AccountCreation {
 
     WebDriver ldriver;
-    public AccountCreation(WebDriver rdriver){
-        ldriver=rdriver;
-        PageFactory.initElements(rdriver,this);
 
-
+    public AccountCreation(WebDriver rdriver) {
+        ldriver = rdriver;
+        PageFactory.initElements(rdriver, this);
     }
 
-//    @FindBy(xpath="//*[@id='account-creation_form']/div[1]/div[1]/div[1]/label")
-   @FindBy(id="uniform-id_gender1")
+
+    @FindBy(id = "uniform-id_gender1")
     WebElement titleMr;
 
-    public void selectTitleMr(){
+    public void selectTitleMr() {
         titleMr.click();
         System.out.println(titleMr.isSelected());
     }
@@ -44,4 +43,15 @@ public class AccountCreation {
     public void passWord(String pwd){
         password.sendKeys(pwd);
     }
+
+    @FindBy(id="submitAccount")
+    WebElement submit;
+
+    public void submitAcc(){
+        submit.click();
+
+
+    }
+
+
 }

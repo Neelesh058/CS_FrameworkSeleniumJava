@@ -36,12 +36,6 @@ public class BaseClass {
             case "chrome":
                 WebDriverManager.chromedriver().setup();
 
-//                Chrome will open in incognito window
-//                ChromeOptions options = new ChromeOptions();
-//                options.addArguments("incognito");
-//                DesiredCapabilities cap = DesiredCapabilities.chrome();
-//                cap.setCapability(ChromeOptions.CAPABILITY, options);
-//
                 driver = new ChromeDriver();
                 break;
             case "edge":
@@ -54,7 +48,7 @@ public class BaseClass {
                 break;
         }
         //for logging
-        logger = LogManager.getLogger("MyStoreV1");
+        logger = LogManager.getLogger("CS_FrameworkSeleniumJava");
 
         //open url
         driver.get(url);

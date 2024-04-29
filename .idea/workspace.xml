@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8d136671-0fe9-4b75-8b45-047f53ffee7a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/qa/testcases/BaseClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/qa/testcases/BaseClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/qa/testcases/TC_MyAccountPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/qa/testcases/TC_MyAccountPageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/qa/utilities/log4j2.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Resources/log4j2.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +48,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\a610948\IdeaProjects\CS_FrameworkSeleniumJava\src\test\java\com\qa\utilities" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\a610948\IdeaProjects\CS_FrameworkSeleniumJava\src\main\java\Resources" />
     </key>
   </component>
   <component name="RunManager" selected="TestNG.TC_MyAccountPageTest (2)">

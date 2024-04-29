@@ -20,24 +20,24 @@ driver.get(url);
 
 logger.info("url opened");
 
-    IndexPage ip=new IndexPage(driver);
-    ip.clickOnSignIn();
+        IndexPage ip = new IndexPage(driver);
+        ip.clickOnSignIn();
 
-    myAccountPage mp=new myAccountPage(driver);
-    mp.enterCreateEmailAddress("neeleshpal19@gmail.com");
-    mp.clickSubmitCreate();
+        myAccountPage mp = new myAccountPage(driver);
+        mp.enterCreateEmailAddress("neeleshpal02@gmail.com");
+        mp.clickSubmitCreate();
 
-    AccountCreation ac=new AccountCreation(driver);
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    ac.selectTitleMr();
-    ac.customerFirstName("Neelesh");
-    ac.customerlastName("kumar");
-    ac.passWord("Chalodelhi@12");
-    ac.submitAcc();
-    Thread.sleep(2000);
+        AccountCreation ac = new AccountCreation(driver);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        ac.selectTitleMr();
+        ac.customerFirstName("Neelesh");
+        ac.customerlastName("kumar");
+        ac.passWord("Chalodelhi@12");
+        ac.submitAcc();
+        Thread.sleep(2000);
 
 
-        MyAccount ma=new MyAccount(driver);
+        MyAccount ma = new MyAccount(driver);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         ma.addAddress();
         ma.enterAddress("Newyork");
@@ -49,9 +49,9 @@ logger.info("url opened");
         ma.enterMobilePhone("12365455");
         ma.submitAddress();
 
-        RegisteredUserAccount rua=new RegisteredUserAccount(driver);
-        String title=driver.getTitle();
-        Assert.assertEquals(title,"Addresses - My Shop");
+        RegisteredUserAccount rua = new RegisteredUserAccount(driver);
+        String title = driver.getTitle();
+        Assert.assertEquals(title, "Addresses - My Shop");
 
 
 }

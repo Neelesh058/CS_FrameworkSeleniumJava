@@ -24,6 +24,33 @@ public class myAccountPage {
     @FindBy(id="SubmitCreate")
     WebElement SubmitCreate;
 
+    //Already registered users
+    @FindBy(id = "email")
+    WebElement registeredUsersEmail;
+
+    @FindBy(id = "passwd")
+    WebElement registeredUsersPwd;
+
+    @FindBy(id = "SubmitLogin")
+    WebElement submitLogin;
+
+    public void enterEmailAddress(String emailAdd)
+    {
+        registeredUsersEmail.sendKeys(emailAdd);
+    }
+
+    public void enterPassword(String pwd)
+    {
+        registeredUsersPwd.sendKeys(pwd);
+    }
+
+
+    public void clickSignIn()
+    {
+        submitLogin.click();
+    }
+
+
     public void enterCreateEmailAddress(String email){
 
         createEmailId.sendKeys(email);

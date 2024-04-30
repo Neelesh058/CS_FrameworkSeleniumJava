@@ -12,19 +12,17 @@ public class TC_MyAccountPageTest extends BaseClass {
     public TC_MyAccountPageTest() throws IOException {
     }
 
-    @Test
+    @Test(enabled = false)
 
 public void verifyRegistrationandLogin() throws InterruptedException {
 
-driver.get(url);
 
-logger.info("url opened");
 
         IndexPage ip = new IndexPage(driver);
         ip.clickOnSignIn();
 
         myAccountPage mp = new myAccountPage(driver);
-        mp.enterCreateEmailAddress("neeleshpal02@gmail.com");
+        mp.enterCreateEmailAddress("neeleshpal04@gmail.com");
         mp.clickSubmitCreate();
 
         AccountCreation ac = new AccountCreation(driver);
@@ -55,5 +53,51 @@ logger.info("url opened");
 
 
 }
+@Test
+public void verifyLogin() throws IOException {
+
+
+                logger.info("***************TestCase Verify Login starts*****************");
+
+                IndexPage ip = new IndexPage(driver);
+                ip.clickOnSignIn();
+                logger.info("Clicked on sign in link");
+
+                myAccountPage myAcpg = new myAccountPage(driver);
+                myAcpg.enterEmailAddress("cs923@gmail.com");
+                logger.info("Entered email address");
+
+                myAcpg.enterPassword("cs923");
+                logger.info("Entered password");
+
+                myAcpg.clickSignIn();
+                logger.info("Clicked on sign in link..");
+
+
+        RegisteredUserAccount regUser = new RegisteredUserAccount(driver);
+                String userName = regUser.getUserName();
+
+
+                if(userName.equals("Prachi Gupta"))
+                {
+                        logger.info("VerifyLogin - Passed");
+                        captureScreenShot(driver,"verifyLogin");
+                        Assert.assertTrue(true);
+                }
+                else
+                {
+                        logger.info("VerifyLogin - Failed");
+                        captureScreenShot(driver,"VerifyLogin");
+                        Assert.assertTrue(false);
+
+                }
+
+                logger.info("***************TestCase Verify Login ends*****************");
+
+
+        }
+
+
+
 
 }

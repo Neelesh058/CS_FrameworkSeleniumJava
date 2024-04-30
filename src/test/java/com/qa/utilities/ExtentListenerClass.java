@@ -48,15 +48,15 @@ public class ExtentListenerClass implements ITestListener{
     }
 
     //OnStart method is called when any Test starts.
-    public void onStart(ITestContext Result)
-    {
-        try {
-            configureReport();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        System.out.println("On Start method invoked....");
-    }
+//    public void onStart(ITestContext Result)
+//    {
+//        try {
+//            configureReport();
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//        System.out.println("On Start method invoked....");
+//    }
 
     //onFinish method is called after all Tests are executed
     public void onFinish(ITestContext Result)
@@ -76,7 +76,7 @@ public class ExtentListenerClass implements ITestListener{
         test = reports.createTest(Result.getName());//create entry in html report
         test.log(Status.FAIL, MarkupHelper.createLabel("Name of the failed test case is: " + Result.getName() ,ExtentColor.RED));
 
-        String screenShotPath = System.getProperty("user.dir") + "\\ScreenShots\\" + Result.getName() + ".png";
+        String screenShotPath = System.getProperty("user.dir") + "\\Screenshots\\" + Result.getName() + ".png";
 
         File screenShotFile = new File(screenShotPath);
 
@@ -119,10 +119,10 @@ public class ExtentListenerClass implements ITestListener{
     }
 
 
-    public void onTestFailedButWithinSuccessPercentage(ITestResult Result)
-    {
-
-    }
+//    public void onTestFailedButWithinSuccessPercentage(ITestResult Result)
+//    {
+//
+//    }
 
 
 
